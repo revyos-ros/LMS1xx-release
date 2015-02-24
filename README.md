@@ -1,3 +1,24 @@
+## lms1xx (hydro) - 0.1.2-0
+
+The packages in the `lms1xx` repository were released into the `hydro` distro by running `/usr/bin/bloom-release --track hydro --ros-distro hydro lms1xx` on `Tue, 24 Feb 2015 18:15:06 -0000`
+
+The `lms1xx` package was released.
+
+Version of package(s) in repository `lms1xx`:
+- upstream repository: https://github.com/clearpathrobotics/LMS1xx.git
+- release repository: https://github.com/clearpath-gbp/LMS1xx-release.git
+- rosdistro version: `0.1.1-0`
+- old version: `0.1.1-0`
+- new version: `0.1.2-0`
+
+Versions of tools used:
+- bloom version: `0.5.19`
+- catkin_pkg version: `0.2.7`
+- rosdep version: `0.11.2`
+- rosdistro version: `0.4.1`
+- vcstools version: `0.1.36`
+
+
 ## lms1xx (indigo) - 0.1.2-0
 
 The packages in the `lms1xx` repository were released into the `indigo` distro by running `/usr/local/bin/bloom-release -r indigo -t indigo lms1xx` on `Tue, 20 Jan 2015 21:19:45 -0000`
