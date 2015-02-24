@@ -31,10 +31,10 @@
 #include <unistd.h>
 
 #include "LMS1xx/LMS1xx.h"
+#include "console_bridge/console.h"
 
 LMS1xx::LMS1xx() :
 	connected(false) {
-	debug = false;
 }
 
 LMS1xx::~LMS1xx() {
@@ -78,12 +78,10 @@ void LMS1xx::startMeas() {
 	write(sockDesc, buf, strlen(buf));
 
 	int len = read(sockDesc, buf, 100);
-	//	if (buf[0] != 0x02)
-	//		std::cout << "invalid packet recieved" << std::endl;
-	//	if (debug) {
-	//		buf[len] = 0;
-	//		std::cout << buf << std::endl;
-	//	}
+	if (buf[0] != 0x02)
+		logWarn("invalid packet recieved");
+	buf[len] = 0;
+	logDebug("RX: %s", buf);
 }
 
 void LMS1xx::stopMeas() {
@@ -93,12 +91,10 @@ void LMS1xx::stopMeas() {
 	write(sockDesc, buf, strlen(buf));
 
 	int len = read(sockDesc, buf, 100);
-	//	if (buf[0] != 0x02)
-	//		std::cout << "invalid packet recieved" << std::endl;
-	//	if (debug) {
-	//		buf[len] = 0;
-	//		std::cout << buf << std::endl;
-	//	}
+	if (buf[0] != 0x02)
+		logWarn("invalid packet recieved");
+	buf[len] = 0;
+	logDebug("RX: %s", buf);
 }
 
 status_t LMS1xx::queryStatus() {
@@ -108,12 +104,11 @@ status_t LMS1xx::queryStatus() {
 	write(sockDesc, buf, strlen(buf));
 
 	int len = read(sockDesc, buf, 100);
-	//	if (buf[0] != 0x02)
-	//		std::cout << "invalid packet recieved" << std::endl;
-	//	if (debug) {
-	//		buf[len] = 0;
-	//		std::cout << buf << std::endl;
-	//	}
+	if (buf[0] != 0x02)
+		logWarn("invalid packet recieved");
+	buf[len] = 0;
+	logDebug("RX: %s", buf);
+
 	int ret;
 	sscanf((buf + 10), "%d", &ret);
 
@@ -127,12 +122,10 @@ void LMS1xx::login() {
 	write(sockDesc, buf, strlen(buf));
 
 	int len = read(sockDesc, buf, 100);
-	//	if (buf[0] != 0x02)
-	//		std::cout << "invalid packet recieved" << std::endl;
-	//	if (debug) {
-	//		buf[len] = 0;
-	//		std::cout << buf << std::endl;
-	//	}
+	if (buf[0] != 0x02)
+		logWarn("invalid packet recieved");
+	buf[len] = 0;
+	logDebug("RX: %s", buf);
 }
 
 scanCfg LMS1xx::getScanCfg() const {
@@ -143,12 +136,10 @@ scanCfg LMS1xx::getScanCfg() const {
 	write(sockDesc, buf, strlen(buf));
 
 	int len = read(sockDesc, buf, 100);
-	//	if (buf[0] != 0x02)
-	//		std::cout << "invalid packet recieved" << std::endl;
-	//	if (debug) {
-	//		buf[len] = 0;
-	//		std::cout << buf << std::endl;
-	//	}
+	if (buf[0] != 0x02)
+		logWarn("invalid packet recieved");
+	buf[len] = 0;
+	logDebug("RX: %s", buf);
 
 	sscanf(buf + 1, "%*s %*s %X %*d %X %X %X", &cfg.scaningFrequency,
 			&cfg.angleResolution, &cfg.startAngle, &cfg.stopAngle);
@@ -174,12 +165,25 @@ void LMS1xx::setScanDataCfg(const scanDataCfg &cfg) {
 			"sWN LMDscandatacfg", cfg.outputChannel, cfg.remission ? 1 : 0,
 			cfg.resolution, cfg.encoder, cfg.position ? 1 : 0,
 			cfg.deviceName ? 1 : 0, cfg.timestamp ? 1 : 0, cfg.outputInterval, 0x03);
-	if(debug)
-		printf("%s\n", buf);
+	logDebug("TX: %s", buf);
 	write(sockDesc, buf, strlen(buf));
 
 	int len = read(sockDesc, buf, 100);
 	buf[len - 1] = 0;
+}
+
+scanOutputRange LMS1xx::getScanOutputRange() const {
+	scanOutputRange outputRange;
+	char buf[100];
+	sprintf(buf, "%c%s%c", 0x02, "sRN LMPoutputRange", 0x03);
+
+	write(sockDesc, buf, strlen(buf));
+
+	int len = read(sockDesc, buf, 100);
+
+	sscanf(buf + 1, "%*s %*s %*d %X %X %X", &outputRange.angleResolution,
+		&outputRange.startAngle, &outputRange.stopAngle);
+	return outputRange;
 }
 
 void LMS1xx::scanContinous(int start) {
@@ -191,17 +195,10 @@ void LMS1xx::scanContinous(int start) {
 	int len = read(sockDesc, buf, 100);
 
 	if (buf[0] != 0x02)
-		printf("invalid packet recieved\n");
+		logError("invalid packet recieved");
 
-	if (debug) {
-		buf[len] = 0;
-		printf("%s\n", buf);
-	}
-
-	if (start == 0) {
-		for (int i = 0; i < 10; i++)
-			read(sockDesc, buf, 100);
-	}
+	buf[len] = 0;
+	logDebug("RX: %s", buf);
 }
 
 void LMS1xx::getData(scanData& data) {
@@ -223,8 +220,7 @@ void LMS1xx::getData(scanData& data) {
 		}
 	} while ((buf[0] != 0x02) || (buf[len - 1] != 0x03));
 
-	//	if (debug)
-	//		std::cout << "scan data recieved" << std::endl;
+	logDebug("scan data recieved");
 	buf[len - 1] = 0;
 	char* tok = strtok(buf, " "); //Type of command
 	tok = strtok(NULL, " "); //Command
@@ -255,8 +251,8 @@ void LMS1xx::getData(scanData& data) {
 	tok = strtok(NULL, " "); //NumberChannels16Bit
 	int NumberChannels16Bit;
 	sscanf(tok, "%d", &NumberChannels16Bit);
-	if (debug)
-		printf("NumberChannels16Bit : %d\n", NumberChannels16Bit);
+	logDebug("NumberChannels16Bit : %d", NumberChannels16Bit);
+
 	for (int i = 0; i < NumberChannels16Bit; i++) {
 		int type = -1; // 0 DIST1 1 DIST2 2 RSSI1 3 RSSI2
 		char content[6];
@@ -278,9 +274,7 @@ void LMS1xx::getData(scanData& data) {
 		tok = strtok(NULL, " "); //NumberData
 		int NumberData;
 		sscanf(tok, "%X", &NumberData);
-
-		if (debug)
-			printf("NumberData : %d\n", NumberData);
+		logDebug("NumberData : %d", NumberData);
 
 		if (type == 0) {
 			data.dist_len1 = NumberData;
@@ -313,8 +307,8 @@ void LMS1xx::getData(scanData& data) {
 	tok = strtok(NULL, " "); //NumberChannels8Bit
 	int NumberChannels8Bit;
 	sscanf(tok, "%d", &NumberChannels8Bit);
-	if (debug)
-		printf("NumberChannels8Bit : %d\n", NumberChannels8Bit);
+	logDebug("NumberChannels8Bit : %d\n", NumberChannels8Bit);
+
 	for (int i = 0; i < NumberChannels8Bit; i++) {
 		int type = -1;
 		char content[6];
@@ -336,9 +330,7 @@ void LMS1xx::getData(scanData& data) {
 		tok = strtok(NULL, " "); //NumberData
 		int NumberData;
 		sscanf(tok, "%X", &NumberData);
-
-		if (debug)
-			printf("NumberData : %d\n", NumberData);
+		logDebug("NumberData : %d\n", NumberData);
 
 		if (type == 0) {
 			data.dist_len1 = NumberData;
@@ -375,12 +367,11 @@ void LMS1xx::saveConfig() {
 	write(sockDesc, buf, strlen(buf));
 
 	int len = read(sockDesc, buf, 100);
-	//	if (buf[0] != 0x02)
-	//		std::cout << "invalid packet recieved" << std::endl;
-	//	if (debug) {
-	//		buf[len] = 0;
-	//		std::cout << buf << std::endl;
-	//	}
+
+	if (buf[0] != 0x02)
+		logWarn("invalid packet recieved");
+	buf[len] = 0;
+	logDebug("RX: %s", buf);
 }
 
 void LMS1xx::startDevice() {
@@ -390,10 +381,9 @@ void LMS1xx::startDevice() {
 	write(sockDesc, buf, strlen(buf));
 
 	int len = read(sockDesc, buf, 100);
-	//	if (buf[0] != 0x02)
-	//		std::cout << "invalid packet recieved" << std::endl;
-	//	if (debug) {
-	//		buf[len] = 0;
-	//		std::cout << buf << std::endl;
-	//	}
+
+	if (buf[0] != 0x02)
+		logWarn("invalid packet recieved");
+	buf[len] = 0;
+	logDebug("RX: %s", buf);
 }
