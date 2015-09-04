@@ -2,6 +2,11 @@
 Changelog for package LMS1xx
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.4 (2015-09-04)
+------------------
+* Another startup bugfix.
+* Contributors: Tony Baltovski
+
 0.1.3 (2015-07-16)
 ------------------
 * Added URDF with simulation plugin.
