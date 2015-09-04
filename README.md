@@ -1,3 +1,24 @@
+## lms1xx (jade) - 0.1.4-0
+
+The packages in the `lms1xx` repository were released into the `jade` distro by running `/usr/local/bin/bloom-release -r jade -t jade lms1xx` on `Fri, 04 Sep 2015 14:51:33 -0000`
+
+The `lms1xx` package was released.
+
+Version of package(s) in repository `lms1xx`:
+- upstream repository: https://github.com/clearpathrobotics/LMS1xx.git
+- release repository: https://github.com/clearpath-gbp/lms1xx-release.git
+- rosdistro version: `0.1.3-0`
+- old version: `0.1.3-0`
+- new version: `0.1.4-0`
+
+Versions of tools used:
+- bloom version: `0.5.20`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.2`
+- rosdistro version: `0.4.2`
+- vcstools version: `0.1.36`
+
+
 ## lms1xx (indigo) - 0.1.4-0
 
 The packages in the `lms1xx` repository were released into the `indigo` distro by running `/usr/local/bin/bloom-release -r indigo -t indigo lms1xx` on `Fri, 04 Sep 2015 14:23:48 -0000`
