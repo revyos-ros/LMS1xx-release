@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>lms1xx</name>
-  <version>0.1.4</version>
+  <version>0.1.5</version>
   <description>The lms1xx package contains a basic ROS driver for the SICK LMS1xx line of LIDARs.</description>
 
   <author>Konrad Banachowicz</author>
@@ -16,6 +16,7 @@
   <depend>roscpp_serialization</depend>
   <depend>sensor_msgs</depend>
 
-  <export>
-  </export>
+  <test_depend>roslaunch</test_depend>
+  <test_depend>roslint</test_depend>
+  <test_depend>rosunit</test_depend>
 </package>

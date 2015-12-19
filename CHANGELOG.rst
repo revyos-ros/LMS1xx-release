@@ -2,6 +2,16 @@
 Changelog for package LMS1xx
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.5 (2015-12-18)
+------------------
+* Rework startup/reconnection logic.
+* Add roslaunch, roslint checks.
+* Other fixes, including a new buffer class with tests.
+* Add travis.
+* Apply astyle to original package.
+* Remove screen attribute from example launcher.
+* Contributors: Mike Purvis
+
 0.1.4 (2015-09-04)
 ------------------
 * Another startup bugfix.
