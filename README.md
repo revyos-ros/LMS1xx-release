@@ -1,3 +1,26 @@
+## lms1xx (kinetic) - 0.1.5-0
+
+The packages in the `lms1xx` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release -r kinetic -t kinetic lms1xx --new-track` on `Thu, 05 May 2016 18:45:13 -0000`
+
+The `lms1xx` package was released.
+
+Version of package(s) in repository `lms1xx`:
+
+- upstream repository: https://github.com/clearpathrobotics/LMS1xx.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.1.5-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.21`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.4`
+- rosdistro version: `0.4.7`
+- vcstools version: `0.1.38`
+
+
 ## lms1xx (jade) - 0.1.5-0
 
 The packages in the `lms1xx` repository were released into the `jade` distro by running `/usr/bin/bloom-release -r jade -t jade lms1xx` on `Thu, 05 May 2016 03:08:04 -0000`
