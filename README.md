@@ -1,3 +1,26 @@
+## lms1xx (melodic) - 0.2.0-1
+
+The packages in the `lms1xx` repository were released into the `melodic` distro by running `/usr/bin/bloom-release -r melodic -r melodic lms1xx` on `Tue, 16 Jul 2019 16:40:18 -0000`
+
+The `lms1xx` package was released.
+
+Version of package(s) in repository `lms1xx`:
+
+- upstream repository: https://github.com/clearpathrobotics/LMS1xx.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.2.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.8.0`
+- catkin_pkg version: `0.4.12`
+- rosdep version: `0.15.2`
+- rosdistro version: `0.7.4`
+- vcstools version: `0.1.40`
+
+
 ## lms1xx (kinetic) - 0.1.6-0
 
 The packages in the `lms1xx` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release -t kinetic -r kinetic lms1xx` on `Thu, 04 May 2017 19:22:00 -0000`
