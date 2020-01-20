@@ -2,11 +2,9 @@
 Changelog for package LMS1xx
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.2.0 (2019-07-16)
+0.1.7 (2020-01-19)
 ------------------
-* Updates for console bridge deprecated macros
 * Fixed warning about inconsistent namespace redefinitions for xmlns:xacro.
-* Fixed formatting
 * Added inf to be set for min range
 * Contributors: Dave Niewinski, Tony Baltovski
 
