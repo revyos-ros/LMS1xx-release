@@ -1,0 +1,12 @@
+Source: ros-kinetic-lms1xx
+Section: misc
+Priority: optional
+Maintainer: Mike Purvis <mpurvis@clearpathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-rosconsole-bridge, ros-kinetic-roscpp, ros-kinetic-roscpp-serialization, ros-kinetic-roslaunch, ros-kinetic-roslint, ros-kinetic-rosunit, ros-kinetic-sensor-msgs
+Homepage: http://ros.org/wiki/LMS1xx
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-lms1xx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-rosconsole-bridge, ros-kinetic-roscpp, ros-kinetic-roscpp-serialization, ros-kinetic-sensor-msgs
+Description: The lms1xx package contains a basic ROS driver for the SICK LMS1xx line of LIDARs.
