@@ -2,9 +2,19 @@
 Changelog for package LMS1xx
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.1.7 (2020-01-19)
+0.3.0 (2021-01-24)
 ------------------
+* Changed shebang to python3.
+* Fixed typo in find_sick script.
+* Update the python scripts so they'll work with python3
+* Switched to industrial_ci for TravisCI.
+* Contributors: Chris I-B, Tony Baltovski
+
+0.2.0 (2019-07-16)
+------------------
+* Updates for console bridge deprecated macros
 * Fixed warning about inconsistent namespace redefinitions for xmlns:xacro.
+* Fixed formatting
 * Added inf to be set for min range
 * Contributors: Dave Niewinski, Tony Baltovski
 
