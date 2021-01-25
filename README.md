@@ -1,3 +1,26 @@
+## lms1xx (noetic) - 0.3.0-1
+
+The packages in the `lms1xx` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic -t noetic lms1xx` on `Mon, 25 Jan 2021 01:53:55 -0000`
+
+The `lms1xx` package was released.
+
+Version of package(s) in repository `lms1xx`:
+
+- upstream repository: https://github.com/clearpathrobotics/LMS1xx.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.3.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.0`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.20.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## lms1xx (kinetic) - 0.1.7-1
 
 The packages in the `lms1xx` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release -r kinetic -t kinetic lms1xx` on `Mon, 20 Jan 2020 01:52:15 -0000`
