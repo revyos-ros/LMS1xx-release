@@ -1,0 +1,12 @@
+Source: ros-noetic-lms1xx
+Section: misc
+Priority: optional
+Maintainer: Mike Purvis <mpurvis@clearpathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin, ros-noetic-rosconsole-bridge, ros-noetic-roscpp, ros-noetic-roscpp-serialization, ros-noetic-roslaunch, ros-noetic-roslint, ros-noetic-rosunit, ros-noetic-sensor-msgs
+Homepage: http://ros.org/wiki/LMS1xx
+Standards-Version: 3.9.2
+
+Package: ros-noetic-lms1xx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-rosconsole-bridge, ros-noetic-roscpp, ros-noetic-roscpp-serialization, ros-noetic-sensor-msgs
+Description: The lms1xx package contains a basic ROS driver for the SICK LMS1xx line of LIDARs.
