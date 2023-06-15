@@ -1,3 +1,26 @@
+## lms1xx (humble) - 1.0.0-1
+
+The packages in the `lms1xx` repository were released into the `humble` distro by running `/usr/bin/bloom-release lms1xx -r humble -t humble` on `Thu, 15 Jun 2023 21:20:42 -0000`
+
+The `lms1xx` package was released.
+
+Version of package(s) in repository `lms1xx`:
+
+- upstream repository: https://github.com/clearpathrobotics/LMS1xx.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `1.0.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## lms1xx (noetic) - 0.3.0-2
 
 The packages in the `lms1xx` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic -t noetic lms1xx --edit-track` on `Mon, 25 Jan 2021 02:01:32 -0000`
