@@ -1,0 +1,12 @@
+Source: ros-humble-lms1xx
+Section: misc
+Priority: optional
+Maintainer: Tony Baltovski <tbaltovski@clearpathrobotics.com>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-common <!nocheck>, ros-humble-geometry-msgs, ros-humble-laser-geometry, ros-humble-rclcpp, ros-humble-sensor-msgs, ros-humble-tf2, ros-humble-tf2-ros, ros-humble-ros-workspace
+Homepage: http://ros.org/wiki/LMS1xx
+Standards-Version: 3.9.2
+
+Package: ros-humble-lms1xx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-humble-geometry-msgs, ros-humble-laser-geometry, ros-humble-rclcpp, ros-humble-sensor-msgs, ros-humble-tf2, ros-humble-tf2-ros, ros-humble-ros-workspace
+Description: The lms1xx package contains a basic ROS 2 driver for the SICK LMS1xx line of LIDARs.
